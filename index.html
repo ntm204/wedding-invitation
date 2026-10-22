@@ -1,212 +1,154 @@
 <!doctype html>
-<!-- Thiệp cưới online Tuấn Minh & Thu Thuỷ — sửa nội dung ngay trong file này -->
+<!-- Thiệp cưới online bản Việt: sơn mài khảm vỏ trứng, giấy dó, hộp trầu. Dùng chung ảnh và danh sách khách với bản Pháp -->
 <html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tuấn Minh &amp; Thu Thuỷ · 12.12.2026</title>
-<meta name="description" content="Trân trọng kính mời bạn đến dự lễ thành hôn của Tuấn Minh và Thu Thuỷ, Thứ Bảy 12.12.2026.">
-<meta name="theme-color" content="#F2EFE9">
-<!-- Ảnh và tiêu đề hiện ra khi gửi link qua Zalo, Messenger -->
+<title>Tuấn Minh &amp; Thu Thuỷ · Thiệp báo hỷ</title>
+<meta name="description" content="Trân trọng báo tin lễ thành hôn của Nguyễn Tuấn Minh và Trần Thu Thuỷ, Thứ Bảy 12.12.2026.">
+<meta name="theme-color" content="#16100D">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tuấn Minh &amp; Thu Thuỷ · 12.12.2026">
-<meta property="og:description" content="Trân trọng kính mời bạn đến dự lễ thành hôn của chúng tôi.">
+<meta property="og:description" content="Trân trọng báo tin lễ thành hôn của chúng tôi.">
 <meta property="og:image" content="images/veil.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Be+Vietnam+Pro:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Be+Vietnam+Pro:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<main lang="vi">
-  <div class="bar" id="bar" aria-hidden="true"></div>
-  <h1 class="lock gutter" id="lock" aria-label="Tuấn Minh và Thu Thuỷ">
-    <span class="fit" data-group="names" aria-hidden="true">TUẤN MINH</span>
-    <span class="fit" data-group="names" aria-hidden="true"><span class="amp">&amp;</span>THU THUỶ</span>
-  </h1>
 
-  <header class="hero gutter wrap" id="hero">
-    <div class="hero-meta">
-      <span class="label">Lễ thành hôn</span>
-      <span class="label">12 · 12 · 2026</span>
-      <span class="en">The wedding</span>
-      <span class="en">Sài Gòn · Décembre 2026</span>
+<!-- Màn hình chào: hộp trầu sơn mài trên giấy dó, nắp ghi tên khách (mã trong link ?m=<mã>, danh sách ở js/guests.js) -->
+<div class="veil" id="veil" data-wait="2400" role="dialog" aria-modal="true" aria-labelledby="veil-name" lang="vi">
+  <div class="hop">
+    <canvas class="hop-ruot" data-mosaic="ruot" aria-hidden="true"></canvas>
+    <div class="hop-nap">
+    <canvas class="hop-lid" data-mosaic="lid" aria-hidden="true"></canvas>
+    <div class="hop-in">
+      <p class="lbl">Thiệp báo hỷ</p>
+      <p class="kinh">Trân trọng kính mời</p>
+      <p class="veil-name" id="veil-name" data-guest>Quý khách</p>
+      <p class="veil-to">tới dự lễ thành hôn của<br>Tuấn Minh &amp; Thu Thuỷ</p>
+      <button class="mo" id="veil-open" type="button">Mở thiệp</button>
     </div>
-    <div class="cue label muted" aria-hidden="true">
-      <span>Faire-part de mariage</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
     </div>
-  </header>
-
-  <div class="wrap gutter">
-
-    <section class="sec" aria-labelledby="s-invite">
-      <div class="head"><h2 id="s-invite" class="label">Lời mời</h2><span class="en">L'invitation</span></div>
-      <div>
-        <p class="statement">Hai gia đình trân trọng kính mời bạn đến dự lễ thành hôn của <em>Tuấn Minh</em> và <em>Thu Thuỷ</em>.</p>
-        <p class="en statement-en">Together with their families, Tuấn Minh and Thu Thuỷ request the pleasure of your company at the celebration of their marriage.</p>
-      </div>
-    </section>
   </div>
+  <p class="cadao">“Miếng trầu là đầu câu chuyện”</p>
+</div>
 
-  <section class="look" aria-labelledby="s-look">
-    <div class="look-head wrap gutter">
-      <div class="head"><h2 id="s-look" class="label">Album cưới</h2><span class="en">L'album</span></div>
-      <span class="label muted">Ảnh minh hoạ</span>
+<main lang="vi">
+
+  <!-- Đầu trang: tấm sơn mài; cuộn tới đâu, mảnh vỏ trứng khảm vào tới đó, thành vầng trăng tròn -->
+  <section class="hero" id="hero" aria-label="Thiệp báo hỷ">
+    <div class="stage">
+      <canvas class="lacquer" data-mosaic="moon" aria-hidden="true"></canvas>
+      <div class="hero-text">
+        <p class="lbl">Lễ Thành Hôn</p>
+        <h1 class="names"><span>Tuấn Minh</span><span class="amp">&amp;</span><span>Thu Thuỷ</span></h1>
+        <p class="date">Thứ Bảy · 12 . 12 . 2026</p>
+        <p class="am">Nhằm ngày mùng 4 tháng Một năm Bính Ngọ</p>
+      </div>
+      <p class="caption">Sơn mài khảm vỏ trứng · Trăng tròn viên mãn</p>
     </div>
-
-    <figure class="shot full tall" data-shot>
-      <div class="clip"><img src="images/veil.jpg" alt="Cô dâu và chú rể tựa trán vào nhau dưới tấm voan cưới"></div>
-      <figcaption class="over gutter">
-        <span class="label">01 / 05</span>
-        <span class="big">Dưới tấm voan</span>
-        <span class="en">Sous le voile</span>
-      </figcaption>
-    </figure>
-
-    <div class="pair wrap gutter">
-      <figure class="shot a" data-shot>
-        <div class="clip"><img src="images/hands.jpg" alt="Hai bàn tay nắm lấy nhau, ngón tay đeo nhẫn đính hôn" loading="lazy"></div>
-        <figcaption><span class="label muted">02</span><span><b>Lời hứa</b> <span class="en">La promesse</span></span></figcaption>
-      </figure>
-      <figure class="shot b" data-shot>
-        <div class="clip"><img src="images/lace.jpg" alt="Cận cảnh voan ren trên váy cưới" loading="lazy"></div>
-        <figcaption><span class="label muted">03</span><span><b>Ren và voan</b> <span class="en">Dentelle</span></span></figcaption>
-      </figure>
-    </div>
-
-    <div class="quote wrap gutter">
-      <p class="statement">Chúng mình<br>về chung một nhà.</p>
-      <p class="en">Nous nous marions · We are getting married</p>
-    </div>
-
-    <figure class="shot full wide" data-shot>
-      <div class="clip"><img src="images/run.jpg" alt="Cô dâu váy trắng cười rạng rỡ chạy phía trước, chú rể đuổi theo sau" loading="lazy"></div>
-      <figcaption class="over gutter">
-        <span class="label">04 / 05</span>
-        <span class="big">Chạy về phía nhau</span>
-        <span class="en">L'un vers l'autre</span>
-      </figcaption>
-    </figure>
-
-    <figure class="shot solo" data-shot>
-      <div class="clip"><img src="images/lean.jpg" alt="Chú rể ôm cô dâu từ phía sau, hai người mỉm cười" loading="lazy"></div>
-      <figcaption><span class="label muted">05</span><span><b>Mãi mãi</b> <span class="en">Pour toujours</span></span></figcaption>
-    </figure>
   </section>
 
-  <div class="wrap gutter">
+  <div class="do">
 
-    <section class="sec" aria-labelledby="s-date">
-      <div class="head"><h2 id="s-date" class="label">Ngày cưới</h2><span class="en">La date</span></div>
-      <div>
-        <span class="fit date-big" data-group="date" aria-label="12 tháng 12">12.12</span>
-        <div class="date-row">
-          <div><span class="label muted">Thứ</span><strong>Thứ Bảy</strong><span class="en" style="font-size:15px">Saturday</span></div>
-          <div><span class="label muted">Năm</span><strong>2026</strong><span class="en" style="font-size:15px">December</span></div>
-          <div><span class="label muted">Âm lịch</span><strong>Mùng 4 tháng Một</strong><span class="en" style="font-size:15px">Bính Ngọ</span></div>
-        </div>
-        <div class="jour"><b id="jour">J – 50</b><span class="muted" id="jour-note">còn 50 ngày · 50 days to go</span></div>
-      </div>
-    </section>
-
-    <section class="sec" aria-labelledby="s-order">
-      <div class="head"><h2 id="s-order" class="label">Chương trình</h2><span class="en">Programme</span></div>
-      <div>
-        <ol class="order">
-          <li><span class="n">01</span><time datetime="2026-12-12T17:30+07:00">17:30</time><span class="what">Đón khách<span class="en">Arrivals</span></span></li>
-          <li><span class="n">02</span><time datetime="2026-12-12T18:15+07:00">18:15</time><span class="what">Lễ thành hôn<span class="en">Ceremony, 18h15 précises</span></span></li>
-          <li><span class="n">03</span><time datetime="2026-12-12T18:45+07:00">18:45</time><span class="what">Tiệc chiêu đãi<span class="en">Dinner &amp; dancing</span></span></li>
-        </ol>
-        <p class="precise muted">Buổi lễ bắt đầu đúng giờ. Mong bạn đến sớm ít phút.</p>
-      </div>
-    </section>
-
-    <section class="sec" aria-labelledby="s-venue">
-      <div class="head"><h2 id="s-venue" class="label">Địa điểm</h2><span class="en">Le lieu</span></div>
-      <div>
-        <p class="venue">La Maison Blanche</p>
-        <div class="addr">
-          <span>Sảnh Versailles · Tầng 3</span>
-          <span>68 Nguyễn Du, Quận 1, TP. Hồ Chí Minh</span>
-        </div>
-        <div class="actions">
-          <a class="btn solid" href="https://www.google.com/maps/search/?api=1&amp;query=68+Nguy%E1%BB%85n+Du%2C+Qu%E1%BA%ADn+1%2C+TP.+H%E1%BB%93+Ch%C3%AD+Minh" target="_blank" rel="noopener">Chỉ đường
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-          <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%C4%90%C3%A1m+c%C6%B0%E1%BB%9Bi+Minh+%26+Thu%E1%BB%B7&amp;dates=20261212T103000Z/20261212T150000Z&amp;location=Nh%C3%A0+h%C3%A0ng+La+Maison+Blanche%2C+68+Nguy%E1%BB%85n+Du%2C+Qu%E1%BA%ADn+1%2C+TP.+H%E1%BB%93+Ch%C3%AD+Minh&amp;details=S%E1%BA%A3nh+Versailles+%C2%B7+T%E1%BA%A7ng+3" target="_blank" rel="noopener">Lưu vào lịch
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec" aria-labelledby="s-dress">
-      <div class="head"><h2 id="s-dress" class="label">Trang phục</h2><span class="en">Dress code</span></div>
-      <div>
-        <p class="dress">Dạ tiệc <em style="font-style:italic">trang nhã</em></p>
-        <p class="en" style="margin-top:10px">Tenue de soirée · Evening attire</p>
-        <div class="swatches" role="list" aria-label="Gam màu gợi ý">
-          <div class="swatch" role="listitem"><i style="background:#0E0E0D"></i><span class="label">Đen</span></div>
-          <div class="swatch" role="listitem"><i style="background:#F7F3EA"></i><span class="label">Ngà</span></div>
-          <div class="swatch" role="listitem"><i style="background:#CDBFA8"></i><span class="label">Be</span></div>
-          <div class="swatch" role="listitem"><i style="background:#8A8A86"></i><span class="label">Xám</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec" aria-labelledby="s-family">
-      <div class="head"><h2 id="s-family" class="label">Gia đình</h2><span class="en">Les familles</span></div>
-      <div class="families">
+    <section class="block baohy" aria-labelledby="s-baohy">
+      <h2 id="s-baohy" class="lbl">Báo hỷ</h2>
+      <div class="ho">
         <div>
-          <span class="label muted">Nhà trai</span>
-          <span class="name">Ông Nguyễn Văn Hùng</span>
-          <span class="name">Bà Lê Thị Mai</span>
-          <span class="en" style="font-size:15px">Quận 3, TP. Hồ Chí Minh</span>
+          <p class="lbl muted">Nhà trai</p>
+          <p class="cha-me"><span>Ông Nguyễn Văn Hùng</span><span>Bà Lê Thị Mai</span></p>
+          <p class="noi">Quận 3, TP. Hồ Chí Minh</p>
         </div>
         <div>
-          <span class="label muted">Nhà gái</span>
-          <span class="name">Ông Trần Quốc Bảo</span>
-          <span class="name">Bà Phạm Thị Lan</span>
-          <span class="en" style="font-size:15px">Biên Hoà, Đồng Nai</span>
+          <p class="lbl muted">Nhà gái</p>
+          <p class="cha-me"><span>Ông Trần Quốc Bảo</span><span>Bà Phạm Thị Lan</span></p>
+          <p class="noi">Biên Hoà, Đồng Nai</p>
         </div>
+      </div>
+      <p class="tin">Trân trọng báo tin lễ thành hôn<br>của con chúng tôi</p>
+      <div class="doi">
+        <div><p class="lbl muted">Trưởng nam</p><p class="ten">Nguyễn Tuấn Minh</p></div>
+        <span class="amp" aria-hidden="true">&amp;</span>
+        <div><p class="lbl muted">Thứ nữ</p><p class="ten">Trần Thu Thuỷ</p></div>
+      </div>
+      <p class="en">Together with their families, Nguyễn&nbsp;Tuấn&nbsp;Minh and Trần&nbsp;Thu&nbsp;Thuỷ announce their marriage.</p>
+    </section>
+
+    <section class="block" aria-labelledby="s-le">
+      <h2 id="s-le" class="lbl">Hôn lễ</h2>
+      <ol class="le">
+        <li>
+          <time datetime="2026-12-12T08:00+07:00">08:00</time>
+          <div><p class="ten-le">Lễ Vu Quy</p><p class="muted">Tại tư gia nhà gái · Biên Hoà, Đồng Nai</p></div>
+        </li>
+        <li>
+          <time datetime="2026-12-12T10:30+07:00">10:30</time>
+          <div><p class="ten-le">Lễ Thành Hôn</p><p class="muted">Tại tư gia nhà trai · Quận 3, TP. Hồ Chí Minh</p></div>
+        </li>
+        <li>
+          <time datetime="2026-12-12T17:30+07:00">17:30</time>
+          <div><p class="ten-le">Tiệc cưới</p><p class="muted">Đón khách 17:30 · Khai tiệc 18:30</p></div>
+        </li>
+      </ol>
+      <p class="am-lich">Thứ Bảy, ngày 12 tháng 12 năm 2026<br><span class="muted">tức ngày mùng 4 tháng Một năm Bính Ngọ</span></p>
+    </section>
+
+    <section class="block" aria-labelledby="s-album">
+      <h2 id="s-album" class="lbl">Ảnh cưới</h2>
+      <p class="lbl muted nho">Ảnh minh hoạ</p>
+      <div class="album">
+        <figure class="ph p1"><div class="khung"><img src="images/veil.jpg" alt="Cô dâu và chú rể tựa trán vào nhau dưới tấm voan cưới"></div></figure>
+        <figure class="ph p2"><div class="khung"><img src="images/hands.jpg" alt="Hai bàn tay nắm lấy nhau, ngón tay đeo nhẫn" loading="lazy"></div></figure>
+        <figure class="ph p3"><div class="khung"><img src="images/run.jpg" alt="Cô dâu váy trắng cười rạng rỡ chạy phía trước, chú rể đuổi theo sau" loading="lazy"></div></figure>
+        <figure class="ph p4"><div class="khung"><img src="images/lace.jpg" alt="Cận cảnh voan ren trên váy cưới" loading="lazy"></div></figure>
+        <figure class="ph p5"><div class="khung"><img src="images/lean.jpg" alt="Chú rể ôm cô dâu từ phía sau, hai người mỉm cười" loading="lazy"></div></figure>
       </div>
     </section>
 
-    <section class="sec" aria-labelledby="s-rsvp">
-      <div class="head"><h2 id="s-rsvp" class="label">Xác nhận</h2><span class="en">Répondez s'il vous plaît</span></div>
-      <div>
-        <div class="card">
-          <div class="top"><span class="label">Faire-part</span><span class="label">Mariage</span></div>
-          <p class="who">MINH<br><em>&amp;</em>THUỶ</p>
-          <div class="grid">
-            <div><span class="k">Ngày · Date</span><span class="v">Samedi 12.12.2026</span></div>
-            <div><span class="k">Giờ · Heure</span><span class="v">18h15 précises</span></div>
-            <div><span class="k">Nơi · Lieu</span><span class="v">La Maison Blanche</span></div>
-            <div><span class="k">Hạn · R.S.V.P.</span><span class="v">Avant le 30.11</span></div>
-          </div>
-          <div class="foot"><span>Tenue de soirée</span><span>Sài Gòn</span></div>
+    <section class="block" aria-labelledby="s-tiec">
+      <h2 id="s-tiec" class="lbl">Tiệc cưới</h2>
+      <p class="noi-tiec">Trung tâm Tiệc cưới Hoa Sen</p>
+      <p class="muted">Sảnh Trầu Cau · Tầng 3<br>68 Nguyễn Du, Quận 1, TP. Hồ Chí Minh</p>
+      <p class="gio-tiec">17:30 · Thứ Bảy, 12.12.2026</p>
+      <div class="actions">
+        <a class="btn dam" href="https://www.google.com/maps/search/?api=1&amp;query=68+Nguy%E1%BB%85n+Du%2C+Qu%E1%BA%ADn+1%2C+TP.+H%E1%BB%93+Ch%C3%AD+Minh" target="_blank" rel="noopener">Chỉ đường</a>
+        <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Ti%E1%BB%87c+c%C6%B0%E1%BB%9Bi+Minh+%26+Thu%E1%BB%B7&amp;dates=20261212T103000Z/20261212T150000Z&amp;location=68+Nguy%E1%BB%85n+Du%2C+Qu%E1%BA%ADn+1%2C+TP.+H%E1%BB%93+Ch%C3%AD+Minh&amp;details=S%E1%BA%A3nh+Tr%E1%BA%A7u+Cau+%C2%B7+T%E1%BA%A7ng+3" target="_blank" rel="noopener">Lưu vào lịch</a>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="s-xn">
+      <h2 id="s-xn" class="lbl">Xác nhận tham dự</h2>
+      <p class="kinh-gui">Kính gửi <span data-guest>Quý khách</span></p>
+      <p class="muted">Mong nhận hồi âm trước ngày 30.11.2026</p>
+      <div class="contacts">
+        <div class="contact">
+          <div><p class="lbl muted">Chú rể · Tuấn Minh</p><p class="num">0900 000 001</p></div>
+          <button class="copy" type="button" id="copy-minh" data-num="0900000001">Sao chép</button>
         </div>
-        <div class="contacts">
-          <div class="contact">
-            <div><span class="label muted">Chú rể · Tuấn Minh</span><p class="num">0900 000 001</p></div>
-            <button class="copy" type="button" id="copy-minh" data-num="0900000001">Sao chép</button>
-          </div>
-          <div class="contact">
-            <div><span class="label muted">Cô dâu · Thu Thuỷ</span><p class="num">0900 000 002</p></div>
-            <button class="copy" type="button" id="copy-thuy" data-num="0900000002">Sao chép</button>
-          </div>
+        <div class="contact">
+          <div><p class="lbl muted">Cô dâu · Thu Thuỷ</p><p class="num">0900 000 002</p></div>
+          <button class="copy" type="button" id="copy-thuy" data-num="0900000002">Sao chép</button>
         </div>
       </div>
+      <p class="vinh-hanh">Sự hiện diện của quý khách<br>là niềm vinh hạnh cho gia đình chúng tôi.</p>
     </section>
 
   </div>
 
-  <footer class="gutter">
-    <div class="wrap" style="width:100%">
-      <span class="fit" data-group="foot" style="font-style:italic">À bientôt</span>
-    </div>
-    <div class="wrap row label" style="width:100%"><span>Minh &amp; Thuỷ</span><span>12 · 12 · 2026</span></div>
+  <footer class="cuoi">
+    <p class="lbl">Trăm năm hạnh phúc</p>
+    <p class="ky">Tuấn Minh <span class="amp">&amp;</span> Thu Thuỷ</p>
+    <p class="date">12 . 12 . 2026</p>
   </footer>
+
 </main>
+
+<script src="js/guests.js"></script>
+<script src="js/invite.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
