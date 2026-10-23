@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Tuấn Minh &amp; Thu Thuỷ</title>
+  <defs>
+    <radialGradient id="lacquer" cx="30%" cy="18%" r="95%"><stop offset="0" stop-color="#3a2216"/><stop offset=".55" stop-color="#1c130e"/><stop offset="1" stop-color="#120c09"/></radialGradient>
+    <radialGradient id="eggshell" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#F6F0E4"/><stop offset="1" stop-color="#E4D7BD"/></radialGradient>
+    <clipPath id="moon"><circle cx="38" cy="25" r="12.5"/></clipPath>
+    <path id="thread" d="M7 47 C15 47 21 44 26 39 C32 33 31 26 26.5 26.5 C22 27 23 35 29 38 C36 41.5 47 40 57 34"/>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#lacquer)"/>
+  <circle cx="38" cy="25" r="12.5" fill="url(#eggshell)"/>
+  <g clip-path="url(#moon)" fill="none" stroke-linecap="round">
+    <use href="#thread" stroke="#16100D" stroke-width="4.4"/>
+  </g>
+  <use href="#thread" fill="none" stroke="#C9A45C" stroke-width="2.6" stroke-linecap="round"/>
+</svg>
