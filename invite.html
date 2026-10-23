@@ -26,6 +26,7 @@
   ul { list-style: none; padding: 0; margin: 0; }
   li { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 8px 0; border-top: 1px solid #d7c9b2; font-size: 14px; }
   li button { padding: 6px 10px; font-size: 13px; }
+  .actions { display: flex; gap: 6px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -66,21 +67,33 @@
       var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Đã chọn, nhấn Ctrl+C');
     });
   }
+  function store() {
+    try { localStorage.setItem('invite-links', JSON.stringify(saved)); } catch (e) {}
+    renderHistory();
+  }
   function remember(name, link) {
     saved = saved.filter(function (item) { return item.name !== name; });
     saved.unshift({ name: name, link: link });
     saved = saved.slice(0, 100);
-    try { localStorage.setItem('invite-links', JSON.stringify(saved)); } catch (e) {}
-    renderHistory();
+    store();
+  }
+  function button(label, onclick) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'ghost'; b.textContent = label; b.onclick = function () { onclick(b); };
+    return b;
   }
   function renderHistory() {
     list.replaceChildren();
     saved.forEach(function (item) {
-      var li = document.createElement('li'), span = document.createElement('span'), b = document.createElement('button');
+      var li = document.createElement('li'), span = document.createElement('span'), actions = document.createElement('span');
       span.textContent = item.name;
-      b.type = 'button'; b.className = 'ghost'; b.textContent = 'Chép link';
-      b.onclick = function () { copyText(item.link, b); };
-      li.append(span, b); list.append(li);
+      actions.className = 'actions';
+      actions.append(
+        button('Chép link', function (b) { copyText(item.link, b); }),
+        // Chỉ xoá khỏi lịch sử trên máy này; link đã gửi vẫn mở được.
+        button('Xoá', function () { saved = saved.filter(function (other) { return other !== item; }); store(); })
+      );
+      li.append(span, actions); list.append(li);
     });
     if (!saved.length) { var li = document.createElement('li'); li.textContent = 'Chưa có.'; list.append(li); }
   }
