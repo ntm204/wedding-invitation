@@ -614,3 +614,7 @@ h2 { scroll-margin-top: 40px; }
 .letter-top .lbl, .letter-edition, .contact .lbl, .copy { font-size: 12px; letter-spacing: .08em; }
 .hero .scroll-cue { font-size: 11px; letter-spacing: .08em; }
 .le .muted { text-wrap: pretty; }
+
+/* Arrows are drawn, not typed: iOS shows the "↗" character as a blue emoji. */
+.arrow-icon { display: block; width: .62em; height: .62em; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.save-date .arrow-icon { width: 1.05em; height: 1.05em; stroke-width: 1.2; }
