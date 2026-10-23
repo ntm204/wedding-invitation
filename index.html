@@ -11,9 +11,10 @@
 <meta property="og:title" content="Tuấn Minh &amp; Thu Thuỷ · 12.12.2026">
 <meta property="og:description" content="Trân trọng báo tin lễ thành hôn của chúng tôi.">
 <meta property="og:image" content="images/veil.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Be+Vietnam+Pro:wght@300;400;500&display=swap">
+<link rel="preload" href="fonts/lora-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/be-vietnam-pro-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/be-vietnam-pro-medium.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -37,6 +38,29 @@
 </div>
 
 <main lang="vi" id="invitation" tabindex="-1">
+  <svg class="story-thread" aria-hidden="true" focusable="false" width="24" preserveAspectRatio="none">
+    <defs>
+      <clipPath id="thread-window"><rect class="thread-window" x="0" y="0" width="44" height="0"/></clipPath>
+      <path id="thread-spine" class="story-thread-line"/>
+      <mask id="thread-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="44" height="1" style="mask-type: alpha">
+        <use href="#thread-spine" class="thread-trace" fill="none" stroke="white" stroke-width="10"/>
+      </mask>
+      <mask id="thread-stitches" maskUnits="userSpaceOnUse" x="0" y="0" width="44" height="1" style="mask-type: luminance">
+        <rect class="thread-paper" width="44" height="1" fill="white"/>
+        <g class="thread-buried" fill="black"></g>
+      </mask>
+    </defs>
+    <g class="thread-piercings" clip-path="url(#thread-window)"></g>
+    <g mask="url(#thread-reveal)">
+      <g mask="url(#thread-stitches)">
+        <use href="#thread-spine" class="thread-shadow" transform="translate(.7 1)"/>
+        <use href="#thread-spine" class="thread-body"/>
+        <path class="thread-ply thread-ply-shade"/>
+        <path class="thread-ply thread-ply-light"/>
+        <g class="thread-crossings"></g>
+      </g>
+    </g>
+  </svg>
 
   <!-- Hai nét chỉ duyên: một biểu tượng riêng cho Minh và Thuỷ. -->
   <section class="hero" id="hero" aria-label="Thiệp báo hỷ">
