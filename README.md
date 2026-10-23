@@ -10,9 +10,8 @@ HTML/CSS/JS thuần, không cần cài gì.
 index.html        Toàn bộ nội dung chữ (tên, song thân, giờ lễ, địa điểm, số điện thoại)
 css/style.css     Màu, chữ, bố cục
 js/main.js        Tạo giấy dó; điều phối chuyển động khi cuộn, xem ảnh lớn, nút sao chép
-js/invite.js      Màn hình chào: điền tên khách theo mã trong link, mở thiệp giấy
-js/guests.js      Danh sách khách mời: mã → tên
-scripts/links.py  In link riêng cho từng khách
+js/invite.js      Màn hình chào: điền tên khách theo link, mở thiệp giấy
+invite.html       Trang ẩn: gõ tên khách → ra link mời riêng
 images/           Ảnh cưới (đang là ảnh mẫu CC0)
 ```
 
@@ -20,8 +19,8 @@ images/           Ảnh cưới (đang là ảnh mẫu CC0)
 
 ```sh
 python3 -m http.server 8000
-# máy tính: http://localhost:8000/?m=hoang-lan
-# điện thoại cùng Wi-Fi: http://<IP của Mac>:8000/?m=hoang-lan  (IP: ipconfig getifaddr en0)
+# máy tính: http://localhost:8000/  ·  tạo link khách: http://localhost:8000/invite.html
+# điện thoại cùng Wi-Fi: http://<IP của máy>:8000/
 ```
 
 ## Sửa nội dung
@@ -35,17 +34,9 @@ python3 -m http.server 8000
 
 ## Lời mời riêng cho từng khách
 
-Khi mở thiệp, khách thấy thiệp giấy ghi đúng tên mình, ví dụ "Trân trọng kính mời *Anh Hoàng & Chị Lan*". Tên này cũng hiện ở phần Xác nhận tham dự. Link không có mã (hoặc mã sai) thì thiệp ghi "Quý khách".
+Khi mở thiệp, khách thấy thiệp giấy ghi đúng tên mình, ví dụ "Trân trọng kính mời *Anh Hoàng & Chị Lan*". Tên này cũng hiện ở phần Xác nhận tham dự. Link không có tên (hoặc link bị sửa hỏng) thì thiệp ghi "Quý khách".
 
-1. Thêm khách vào `js/guests.js`, mỗi dòng một khách: `'mã': 'Tên hiện trên thiệp',`
-2. In link để gửi:
-
-```sh
-python3 scripts/links.py https://<địa chỉ thiệp>
-# Anh Hoàng & Chị Lan   https://<địa chỉ thiệp>/?m=hoang-lan
-```
-
-Lưu ý: ai mở được trang cũng có thể đọc `js/guests.js`, nên chỉ ghi tên, không ghi số điện thoại hay địa chỉ của khách.
+Mở trang ẩn `https://<địa chỉ thiệp>/invite`, gõ tên khách, bấm "Sao chép link" rồi gửi. Không cần sửa code hay deploy lại. Tên được mã hoá sẵn trong link (`?k=…`), nên chỉ ghi tên, không ghi số điện thoại hay địa chỉ của khách. Trang này không có link nào trỏ tới và chặn Google index. Danh sách "Đã tạo" chỉ lưu trên trình duyệt của máy đang dùng.
 
 ## Thay ảnh
 

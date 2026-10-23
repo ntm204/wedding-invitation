@@ -1,8 +1,13 @@
-// Màn hình chào: đọc mã ?m= trong link, hiện đúng tên khách mời; bấm "Mở thiệp" để vào trang.
+// Màn hình chào: đọc tên khách trong link ?k=, hiện đúng tên khách mời; chạm thiệp để vào trang.
 (function () {
-  var list = window.GUESTS || {};
-  var code = (new URLSearchParams(location.search).get('m') || '').trim().toLowerCase();
-  var name = code && Object.prototype.hasOwnProperty.call(list, code) ? list[code] : '';
+  var key = new URLSearchParams(location.search).get('k'), name = '';
+  // ?k= mang sẵn tên khách (base64url UTF-8), tạo ở trang ẩn invite.html.
+  if (key) {
+    try {
+      var raw = atob(key.replace(/-/g, '+').replace(/_/g, '/'));
+      name = new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(raw, function (c) { return c.charCodeAt(0); })).trim().slice(0, 80);
+    } catch (e) { name = ''; }
+  }
 
   if (name) {
     document.querySelectorAll('[data-guest]').forEach(function (el) { el.textContent = name; });
