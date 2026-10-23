@@ -1,6 +1,6 @@
 # wedding-invitation · Thiệp cưới online Tuấn Minh & Thu Thuỷ
 
-Thiệp báo hỷ online mang bản sắc Việt: hộp trầu sơn mài trên giấy dó, vầng trăng khảm vỏ trứng hiện dần khi cuộn, nội dung đúng lối thiệp Việt (song thân hai họ, Trưởng nam, Thứ nữ, Lễ Vu Quy, Lễ Thành Hôn, ngày âm lịch). Mỗi khách có link riêng hiện đúng tên mình.
+Thiệp báo hỷ online mang bản sắc Việt: thiệp giấy dó chào khách, biểu tượng hai nét chỉ duyên đan nhau cùng chữ M · T, nội dung đúng lối thiệp Việt (song thân hai họ, Trưởng nam, Thứ nữ, Lễ Vu Quy, Lễ Thành Hôn, ngày âm lịch). Mỗi khách có link riêng hiện đúng tên mình.
 
 HTML/CSS/JS thuần, không cần cài gì.
 
@@ -9,8 +9,8 @@ HTML/CSS/JS thuần, không cần cài gì.
 ```
 index.html        Toàn bộ nội dung chữ (tên, song thân, giờ lễ, địa điểm, số điện thoại)
 css/style.css     Màu, chữ, bố cục
-js/main.js        Vẽ sơn mài khảm vỏ trứng, hộp trầu, giấy dó; nút sao chép
-js/invite.js      Màn hình chào: điền tên khách theo mã trong link, mở hộp trầu
+js/main.js        Tạo giấy dó; điều phối chuyển động khi cuộn, xem ảnh lớn, nút sao chép
+js/invite.js      Màn hình chào: điền tên khách theo mã trong link, mở thiệp giấy
 js/guests.js      Danh sách khách mời: mã → tên
 scripts/links.py  In link riêng cho từng khách
 images/           Ảnh cưới (đang là ảnh mẫu CC0)
@@ -35,7 +35,7 @@ python3 -m http.server 8000
 
 ## Lời mời riêng cho từng khách
 
-Khi mở thiệp, khách thấy nắp hộp trầu ghi đúng tên mình, ví dụ "Trân trọng kính mời *Anh Hoàng & Chị Lan*". Tên này cũng hiện ở phần Xác nhận tham dự. Link không có mã (hoặc mã sai) thì thiệp ghi "Quý khách".
+Khi mở thiệp, khách thấy thiệp giấy ghi đúng tên mình, ví dụ "Trân trọng kính mời *Anh Hoàng & Chị Lan*". Tên này cũng hiện ở phần Xác nhận tham dự. Link không có mã (hoặc mã sai) thì thiệp ghi "Quý khách".
 
 1. Thêm khách vào `js/guests.js`, mỗi dòng một khách: `'mã': 'Tên hiện trên thiệp',`
 2. In link để gửi:
@@ -66,3 +66,13 @@ Thư mục này đăng thẳng được lên GitHub Pages, Netlify hoặc Cloudf
 ## Nguồn ảnh mẫu
 
 Ảnh mẫu là ảnh CC0 (Unsplash, qua Wikimedia Commons): *Under the bridal veil*, *Black and white love*, *Wedding veil and lips*, *Bride running from groom Vietnam*, *Bride leans into husband*.
+
+## Chuyển động và album
+
+Thiệp mở trong 850 ms; hai nét chỉ duyên được vẽ trong 2,8 giây. Bố cục chia thành năm chương trên lưới bất đối xứng; mobile tổ chức lại ảnh, tên và thông tin hai họ. Chuyển động dùng chung ngôn ngữ sơn mài: chữ hé từ mép trên, nét vàng vẽ từ trong ra, khung ảnh mở ngang xen kẽ. Mỗi thành phần chỉ xuất hiện một lần trong một lượt mở trang. Sau khi đã xem, nội dung giữ nguyên khi cuộn lên hoặc quay lại; không khép rồi mở lại. Các nhịp và đường cong nằm trong `--ease-uncover`, `--ease-fold`, `--motion-ink`, `--motion-panel` ở CSS. Chạm ảnh để xem lớn; dùng nút hai bên hoặc phím mũi tên để chuyển ảnh, Escape để đóng. Chế độ giảm chuyển động hiển thị nội dung ngay.
+
+Cuộn giữ hành vi gốc của trình duyệt. Ảnh bìa dịch tối đa 26 px theo tiến độ đầu trang; ảnh album dịch tối đa 14 px. Chữ hé trong 1,6 giây, khung ảnh mở trong 1,9 giây; không dùng thư viện chiếm quyền cuộn.
+
+## Thiệp chào khách
+
+Thiệp giấy trên bì đỏ son, mở bằng cách chạm trực tiếp vào tấm thiệp hoặc dùng Tab rồi Enter/Space. Không có xoay 3D, nút mở riêng hay tương tác hover. Nét chỉ vẽ một lần, tên khách hiện nhẹ; tấm thiệp trượt khỏi bì khi mở. Giảm chuyển động được tôn trọng.
