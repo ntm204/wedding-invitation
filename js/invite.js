@@ -1,13 +1,18 @@
-// Màn hình chào: đọc tên khách trong link ?k=, hiện đúng tên khách mời; chạm thiệp để vào trang.
+// Màn hình chào: đọc tên khách trong link (tạo ở trang ẩn invite.html), hiện đúng tên; chạm thiệp để vào trang.
 (function () {
-  var key = new URLSearchParams(location.search).get('k'), name = '';
-  // ?k= mang sẵn tên khách (base64url UTF-8), tạo ở trang ẩn invite.html.
-  if (key) {
-    try {
+  var search = location.search.slice(1), key = new URLSearchParams(search).get('k'), name = '';
+  // Link mới: /?<mã tên> (js/guest-name.js). Phần sau "&" là tham số mạng xã hội tự thêm, như fbclid.
+  var code = search.split('&')[0];
+  try {
+    if (key) {
+      // Link cũ ?k= (base64url UTF-8) vẫn mở được.
       var raw = atob(key.replace(/-/g, '+').replace(/_/g, '/'));
-      name = new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(raw, function (c) { return c.charCodeAt(0); })).trim().slice(0, 80);
-    } catch (e) { name = ''; }
-  }
+      name = new TextDecoder('utf-8', { fatal: true }).decode(Uint8Array.from(raw, function (c) { return c.charCodeAt(0); }));
+    } else if (/^[\w-]+$/.test(code) && window.GuestName) {
+      name = window.GuestName.decode(code);
+    }
+    name = name.trim().slice(0, 80);
+  } catch (e) { name = ''; }
 
   if (name) {
     document.querySelectorAll('[data-guest]').forEach(function (el) { el.textContent = name; });

@@ -11,6 +11,7 @@ index.html        Toàn bộ nội dung chữ (tên, song thân, giờ lễ, đ�
 css/style.css     Màu, chữ, bố cục
 js/main.js        Tạo giấy dó; điều phối chuyển động khi cuộn, xem ảnh lớn, nút sao chép
 js/invite.js      Màn hình chào: điền tên khách theo link, mở thiệp giấy
+js/guest-name.js  Mã hoá tên khách thành chuỗi ngắn trong link
 invite.html       Trang ẩn: gõ tên khách → ra link mời riêng
 images/           Ảnh cưới (đang là ảnh mẫu CC0)
 ```
@@ -36,7 +37,7 @@ python3 -m http.server 8000
 
 Khi mở thiệp, khách thấy thiệp giấy ghi đúng tên mình, ví dụ "Trân trọng kính mời *Anh Hoàng & Chị Lan*". Tên này cũng hiện ở phần Xác nhận tham dự. Link không có tên (hoặc link bị sửa hỏng) thì thiệp ghi "Quý khách".
 
-Mở trang ẩn `https://<địa chỉ thiệp>/invite`, gõ tên khách, bấm "Sao chép link" rồi gửi. Không cần sửa code hay deploy lại. Tên được mã hoá sẵn trong link (`?k=…`), nên chỉ ghi tên, không ghi số điện thoại hay địa chỉ của khách. Trang này không có link nào trỏ tới và chặn Google index. Danh sách "Đã tạo" chỉ lưu trên trình duyệt của máy đang dùng.
+Mở trang ẩn `https://<địa chỉ thiệp>/invite`, gõ tên khách, bấm "Sao chép link" rồi gửi. Không cần sửa code hay deploy lại. Tên được mã hoá ngắn gọn ngay trong link (`/?anh_hoaAng-chiE_lan`, xem `js/guest-name.js`; link `?k=` cũ vẫn mở được), nên chỉ ghi tên, không ghi số điện thoại hay địa chỉ của khách. Trang này không có link nào trỏ tới và chặn Google index. Danh sách "Đã tạo" chỉ lưu trên trình duyệt của máy đang dùng.
 
 ## Thay ảnh
 

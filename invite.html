@@ -46,6 +46,7 @@
   <h2>Đã tạo trên máy này</h2>
   <ul id="history"></ul>
 </main>
+<script src="js/guest-name.js"></script>
 <script>
 (function () {
   var input = document.getElementById('name'), out = document.getElementById('link');
@@ -54,12 +55,8 @@
   var saved = [];
   try { saved = JSON.parse(localStorage.getItem('invite-links') || '[]'); } catch (e) {}
 
-  // Cùng cách mã hoá mà js/invite.js đọc ở tham số ?k=
-  function linkFor(name) {
-    var bytes = new TextEncoder().encode(name), raw = '';
-    bytes.forEach(function (b) { raw += String.fromCharCode(b); });
-    return base + '?k=' + btoa(raw).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-  }
+  // Cùng bộ mã hoá (js/guest-name.js) mà thiệp dùng để đọc tên.
+  function linkFor(name) { return base + '?' + GuestName.encode(name); }
   function copyText(text, button) {
     function done(label) { var old = button.textContent; button.textContent = label; setTimeout(function () { button.textContent = old; }, 1500); }
     navigator.clipboard.writeText(text).then(function () { done('Đã chép'); }, function () {
