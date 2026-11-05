@@ -1,165 +1,137 @@
 <!doctype html>
-<!-- Thiệp thành hôn: nền ngà, mực đỏ trầm, bố cục chữ. -->
-<html lang="vi">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tuấn Minh &amp; Thu Thuỷ · Thiệp báo hỷ</title>
-<meta name="description" content="Trân trọng báo tin lễ thành hôn của Nguyễn Tuấn Minh và Nguyễn Thị Thu Thuỷ, Thứ Bảy 12.12.2026.">
-<meta name="theme-color" content="#FAF7F2">
-<link rel="icon" href="favicon.ico" sizes="32x32">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tuấn Minh &amp; Thu Thuỷ · 12.12.2026">
-<meta property="og:description" content="Trân trọng báo tin lễ thành hôn của chúng tôi.">
-<meta property="og:image" content="images/veil.jpg">
-<link rel="preload" href="fonts/lora-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/lora-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/be-vietnam-pro-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/be-vietnam-pro-medium.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/style.css?v=6">
-<script>document.documentElement.classList.add('js')</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5eeee">
+  <title>Evelyn &amp; Arthur | September 27, 2026</title>
+  <meta name="description" content="A celebration of Evelyn and Arthur. Discover the day, the place, and a little of our story.">
+  <meta property="og:title" content="Evelyn & Arthur — We're getting married">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/caslon.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/didact.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="arrow" viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5" vector-effect="non-scaling-stroke"/></symbol></svg>
+  <a class="skip-link" href="#about">Skip to our story</a>
+  <header class="navigation" aria-label="Main navigation">
+    <a class="monogram" href="#hero" aria-label="Evelyn and Arthur, back to top">E&amp;A</a>
+    <nav class="nav-links" aria-label="Wedding sections">
+      <a href="#about">About</a><a href="#day">Details</a><a href="#venue">Venue</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="button nav-rsvp" href="#rsvp">RSVP</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile wedding sections" hidden>
+      <a href="#about">Our story</a><a href="#day">The day</a><a href="#venue">The venue</a><a href="#faq">Questions</a><a href="#rsvp">RSVP</a>
+    </nav>
+  </header>
 
-<!-- Thiệp chào ghi tên khách theo link ?k= tạo ở trang invite.html. -->
-<div class="veil welcome-letter" id="veil" data-wait="450" role="dialog" aria-modal="true" aria-labelledby="veil-name">
-  <div class="letter-scene">
-    <div class="letter-card" id="veil-open" role="button" tabindex="0" aria-label="Mở thiệp thành hôn" aria-describedby="veil-name">
-      <div class="letter-top"><span class="lbl">Thiệp thành hôn</span><span class="letter-edition">12.12.2026</span></div>
-      <p class="letter-couple"><span>Tuấn Minh</span><i>&amp;</i><span>Thu Thuỷ</span></p>
-      <div class="letter-dedication"><p class="letter-salutation">Trân trọng kính mời</p><p class="veil-name" id="veil-name" data-guest>Quý khách</p></div>
-      <p class="letter-message">Cùng chúng tôi đón một ngày thật ý nghĩa.</p>
-      <span class="letter-open">Mở lời mời <svg class="arrow-icon" aria-hidden="true"><use href="#arrow"/></svg></span>
-    </div>
-  </div>
-</div>
-
-<main lang="vi" id="invitation" tabindex="-1">
-  <section class="hero" id="hero" aria-label="Thiệp thành hôn">
-    <div class="stage">
-      <div class="hero-top"><span class="lbl">Thiệp thành hôn</span></div>
-      <div class="hero-text">
-        <p class="hero-intro">Trân trọng báo tin lễ thành hôn của</p>
-        <h1 class="names"><span><small>Nguyễn</small>Tuấn Minh</span><span class="amp">&amp;</span><span><small>Nguyễn Thị</small>Thu Thuỷ</span></h1>
-        <div class="hero-date"><span>Thứ Bảy</span><span class="date">12 . 12 . 2026</span></div>
-        <p class="hero-note">Hạnh phúc của chúng tôi trọn vẹn hơn<br>khi có sự hiện diện của bạn.</p>
+  <main>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <video class="hero-film" muted loop playsinline preload="none" aria-hidden="true" poster="assets/hero-poster.webp">
+        <source data-src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-copy">
+        <p class="hero-kicker">We’re Getting Married</p>
+        <h1 id="hero-title">Evelyn &amp; Arthur</h1>
+        <p class="hero-date">September 27, 2026</p>
       </div>
+      <a class="scroll-cue" href="#welcome" aria-label="Discover our celebration"><span></span></a>
+    </section>
 
-    </div>
-  </section>
+    <section class="welcome" id="welcome" aria-label="A little note from us">
+      <p class="word-reveal">Our favourite people, together in one place. We can’t imagine a more beautiful way to begin this new chapter. Wherever you’re travelling from, thank you for being part of our story and for filling this day with love.</p>
+      <p class="signature word-reveal">With love, Evelyn &amp; Arthur</p>
+    </section>
 
-  <div class="do">
-
-    <section class="block baohy" aria-labelledby="s-baohy">
-      <h2 id="s-baohy" class="lbl">Lời mời</h2>
-      <p class="invitation-statement">Hai gia đình trân trọng kính mời<br><em data-guest>Quý khách</em><br>đến dự lễ thành hôn và chung vui<br>cùng các con chúng tôi.</p>
-      <div class="ho">
-        <div>
-          <p class="lbl muted">Nhà trai <span class="family-role">· Trưởng nam</span></p>
-          <p class="cha-me"><span>Ông Nguyễn Thanh Thú</span><span>Bà Phan Thị Thủy</span></p>
-          <p class="noi">Xã Vĩnh Thành, tỉnh Phú Thọ</p>
-        </div>
-        <div>
-          <p class="lbl muted">Nhà gái <span class="family-role">· Thứ nữ</span></p>
-          <p class="cha-me"><span>Ông Nguyễn Thanh Tùng</span><span>Bà Hoàng Thị Bích Liên</span></p>
-          <p class="noi">Phường Nam Định, tỉnh Ninh Bình</p>
+    <section class="memories" aria-label="A few of our favourite memories">
+      <div class="memory-track">
+        <div class="memory-group">
+          <figure class="polaroid" style="--angle:-4deg"><img src="assets/memory-1.jpg" alt="A joyful embrace beside the water" loading="lazy"><figcaption>Summer 2024</figcaption></figure>
+          <figure class="polaroid" style="--angle:4deg"><img src="assets/memory-2.jpg" alt="A table filled with little wedding details" loading="lazy"><figcaption>Beach Day</figcaption></figure>
+          <figure class="polaroid" style="--angle:2deg"><img src="assets/memory-3.jpg" alt="Two hands and a promise" loading="lazy"><figcaption>Sunset</figcaption></figure>
+          <figure class="polaroid" style="--angle:-4deg"><img src="assets/memory-4.jpg" alt="An adventure together by the lake" loading="lazy"><figcaption>Adventure</figcaption></figure>
+          <figure class="polaroid" style="--angle:-3deg"><img src="assets/memory-5.jpg" alt="Flowers, rings, and memories" loading="lazy"><figcaption>Memories</figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="block" aria-labelledby="s-le">
-      <h2 id="s-le" class="lbl">Hôn lễ</h2>
-      <ol class="le">
-        <li>
-          <time datetime="2026-12-12T08:00+07:00">08:00</time>
-          <div><h3 class="ten-le">Lễ Vu Quy</h3><p class="muted">Tại tư gia nhà gái · Phường Nam Định, tỉnh Ninh Bình</p></div>
-        </li>
-        <li>
-          <time datetime="2026-12-12T10:30+07:00">10:30</time>
-          <div><h3 class="ten-le">Lễ Thành Hôn</h3><p class="muted">Tại tư gia nhà trai · Xã Vĩnh Thành, tỉnh Phú Thọ</p></div>
-        </li>
-        <li>
-          <time datetime="2026-12-12T17:30+07:00">17:30</time>
-          <div><h3 class="ten-le">Tiệc cưới</h3><p class="muted">Đón khách 17:30 · Khai tiệc 18:30</p></div>
-        </li>
-      </ol>
-      <p class="am-lich">Thứ Bảy, ngày 12 tháng 12 năm 2026<br><span class="muted">tức ngày mùng 4 tháng Một năm Bính Ngọ</span></p>
-    </section>
-
-    <section class="block" aria-labelledby="s-tiec">
-      <h2 id="s-tiec" class="lbl">Tiệc cưới</h2>
-      <div class="destination">
-        <div class="destination-place">
-          <p class="lbl destination-eyebrow">Địa điểm đón khách</p>
-          <p class="noi-tiec">Tư gia<br>nhà trai</p>
-          <p class="destination-address">Xã Vĩnh Thành<br>tỉnh Phú Thọ</p>
-        </div>
-        <div class="destination-time">
-          <span class="lbl">Đón khách từ</span>
-          <p class="destination-hour">17<span>:</span>30</p>
-          <p class="destination-day">Thứ Bảy<br>12 tháng 12, 2026</p>
-        </div>
-        <a class="destination-route" href="https://www.google.com/maps/search/?api=1&amp;query=21.242913357028453,105.47119872756879" target="_blank" rel="noopener" aria-label="Chỉ đường đến nhà trai — mở Google Maps trong tab mới">
-          <span class="destination-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <span class="destination-route-copy"><span class="destination-route-title">Chỉ đường đến nhà trai</span><span class="destination-route-note">Mở vị trí trên Google Maps</span></span>
-          <span class="destination-arrow" aria-hidden="true"><svg class="arrow-icon" aria-hidden="true"><use href="#arrow"/></svg></span>
-        </a>
+    <section class="story section" id="about" aria-labelledby="story-title">
+      <img class="decoration story-flowers" src="assets/floral.png" alt="" loading="lazy">
+      <img class="decoration story-mountains" src="assets/mountains.png" alt="" loading="lazy">
+      <h2 id="story-title">How We Met</h2>
+      <div class="story-visual">
+        <figure class="story-photo"><img src="assets/story.jpg" alt="Evelyn and Arthur sharing a quiet moment in the golden evening light" loading="lazy"></figure>
       </div>
-      <a class="save-date" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Ti%E1%BB%87c+c%C6%B0%E1%BB%9Bi+Minh+%26+Thu%E1%BB%B7&amp;dates=20261212T103000Z%2F20261212T150000Z&amp;location=T%C6%B0+gia+nh%C3%A0+trai%2C+x%C3%A3+V%C4%A9nh+Th%C3%A0nh%2C+t%E1%BB%89nh+Ph%C3%BA+Th%E1%BB%8D+%2821.242913357028453%2C105.47119872756879%29&amp;details=V%E1%BB%8B+tr%C3%AD+nh%C3%A0+trai%3A+https%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F%3Fapi%3D1%26query%3D21.242913357028453%2C105.47119872756879" target="_blank" rel="noopener">Lưu ngày hẹn vào lịch <svg class="arrow-icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <p class="story-note word-reveal">A school-day hello became our favourite adventure. There were long walks through the hills, little detours, and a thousand ordinary moments that felt extraordinary together. One golden evening by Kandy Lake, a question became a promise. Now we’re ready for forever.</p>
     </section>
 
-    <section class="block" aria-labelledby="s-album">
-      <h2 id="s-album" class="lbl">Ảnh cưới</h2>
-      <p class="lbl muted nho">Ảnh minh hoạ</p>
-      <div class="album">
-        <div class="album-spread album-opening">
-          <figure class="ph p1"><div class="khung"><img src="images/veil.jpg" alt="Cô dâu và chú rể tựa trán vào nhau dưới tấm voan cưới" width="733" height="1100" loading="lazy"></div></figure>
-          <div class="album-details">
-            <figure class="ph p2"><div class="khung"><img src="images/hands.jpg" alt="Hai bàn tay nắm lấy nhau, ngón tay đeo nhẫn" width="1000" height="666" loading="lazy"></div></figure>
-            <figure class="ph p4"><div class="khung"><img src="images/lace.jpg" alt="Cận cảnh voan ren trên váy cưới" width="900" height="599" loading="lazy"></div></figure>
-          </div>
-        </div>
-        <div class="album-spread album-closing">
-          <figure class="ph p3"><div class="khung"><img src="images/run.jpg" alt="Cô dâu váy trắng cười rạng rỡ chạy phía trước, chú rể đuổi theo sau" width="1280" height="853" loading="lazy"></div></figure>
-          <figure class="ph p5"><div class="khung"><img src="images/lean.jpg" alt="Chú rể ôm cô dâu từ phía sau, hai người mỉm cười" width="600" height="900" loading="lazy"></div></figure>
+    <section class="itinerary section" id="day" aria-labelledby="day-title">
+      <div class="section-intro">
+        <h2 id="day-title">THE ITINERARY</h2>
+        <p>A little guide to <strong>September 27th.</strong> From the first happy tears to the last dance, everything takes place on the estate. Settle in and make yourself at home.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"><span></span></div>
+        <article class="event right"><span class="event-dot" aria-hidden="true"></span><div class="event-copy"><time>14:30</time><h3>The Ceremony</h3><p>Meet us on the Upper Lawn, with the hills as our backdrop. Come a little early, find your seat, and share this beautiful beginning with us.</p></div></article>
+        <article class="event left"><span class="event-dot" aria-hidden="true"></span><div class="event-copy"><time>15:30</time><h3>Sunset Cocktails</h3><p>Raise a glass on the terrace. There will be champagne, Ceylon tea, a few delicious bites, and plenty of time to catch up as the light turns golden.</p></div></article>
+        <article class="event right"><span class="event-dot" aria-hidden="true"></span><div class="event-copy"><time>18:30</time><h3>Grand Dinner</h3><p>Take your place in the Main Hall for a generous feast, a few stories from our favourite people, and an evening filled with laughter.</p></div></article>
+        <article class="event left"><span class="event-dot" aria-hidden="true"></span><div class="event-copy"><time>21:00</time><h3>Dancing Under the Stars</h3><p>One last toast, then a little dancing. Bring your favourite people to the floor and help us make a few memories under the Kandy sky.</p></div></article>
+      </div>
+    </section>
+
+    <section class="venue section" id="venue" aria-labelledby="venue-title">
+      <img class="decoration venue-flower left-flower" src="assets/floral-small.png" alt="" loading="lazy">
+      <img class="decoration venue-flower right-flower" src="assets/floral-small.png" alt="" loading="lazy">
+      <div class="venue-heading">
+        <h2 id="venue-title">The Venue</h2>
+        <div class="photo-stack" role="button" tabindex="0" aria-pressed="false" aria-label="Separate the venue photos">
+          <figure class="venue-photo back-photo"><img src="assets/venue-1.jpg" alt="A peaceful garden retreat in Sri Lanka" loading="lazy"></figure>
+          <figure class="venue-photo front-photo"><img src="assets/venue-2.jpg" alt="Lush tropical greenery and a tranquil pool" loading="lazy"></figure>
         </div>
       </div>
-      <p class="album-hint">Chạm vào ảnh để xem trọn khung hình</p>
-    </section>
-
-    <section class="block" aria-labelledby="s-xn">
-      <h2 id="s-xn" class="lbl">Xác nhận tham dự</h2>
-      <p class="kinh-gui">Kính gửi <span data-guest>Quý khách</span></p>
-      <p class="muted">Mong nhận hồi âm trước ngày 30.11.2026</p>
-      <div class="contacts">
-        <div class="contact">
-          <div><p class="lbl muted">Chú rể · Tuấn Minh</p><p class="num">0900 000 001</p></div>
-          <button class="copy" type="button" id="copy-minh" data-num="0900000001">Sao chép</button>
-        </div>
-        <div class="contact">
-          <div><p class="lbl muted">Cô dâu · Thu Thuỷ</p><p class="num">0900 000 002</p></div>
-          <button class="copy" type="button" id="copy-thuy" data-num="0900000002">Sao chép</button>
-        </div>
+      <div class="venue-copy">
+        <h3>Mountbatten Bungalow, Kandy</h3>
+        <address>No. 4, Spring Hill Estate, Bowalawatta, Kandy, Sri Lanka.</address>
+        <p>A quiet estate tucked into the green hills of Sri Lanka. With its old-world charm, tea-country air, and views stretching into the mountains, it felt like the perfect place to gather everyone we love.</p>
+        <a class="button map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mountbatten+Bungalow+Kandy+Sri+Lanka" target="_blank" rel="noopener noreferrer">View Map <span aria-hidden="true">→</span></a>
       </div>
-      <p class="vinh-hanh">Sự hiện diện của quý khách<br>là niềm vinh hạnh cho gia đình chúng tôi.</p>
     </section>
 
-  </div>
+    <section class="faq section" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Everything you need to know</h2>
+      <div class="questions">
+        <div class="question"><h3><button aria-expanded="false" aria-controls="answer-1">Can I bring a plus one?<span class="plus" aria-hidden="true"></span></button></h3><div class="answer" id="answer-1"><div><p>Please follow the names on your invitation. We’ve planned a place especially for each of our invited guests.</p></div></div></div>
+        <div class="question"><h3><button aria-expanded="false" aria-controls="answer-2">Are kids invited?<span class="plus" aria-hidden="true"></span></button></h3><div class="answer" id="answer-2"><div><p>Our celebration will be an adults-only evening. Thank you for understanding and celebrating with us.</p></div></div></div>
+        <div class="question"><h3><button aria-expanded="false" aria-controls="answer-3">What is the dress code?<span class="plus" aria-hidden="true"></span></button></h3><div class="answer" id="answer-3"><div><p>Think garden-party elegance. Light fabrics and comfortable shoes are lovely for the estate grounds. Please leave white for the bride.</p></div></div></div>
+        <div class="question"><h3><button aria-expanded="false" aria-controls="answer-4">Do I need to bring a physical invitation?<span class="plus" aria-hidden="true"></span></button></h3><div class="answer" id="answer-4"><div><p>Just bring yourself! Once your attendance is confirmed, there’s no need for a printed invitation.</p></div></div></div>
+        <div class="question"><h3><button aria-expanded="false" aria-controls="answer-5">Who should I reach out to if I need support?<span class="plus" aria-hidden="true"></span></button></h3><div class="answer" id="answer-5"><div><p>Use the contact details on your personal invitation for any questions about travel, access, or the day itself.</p></div></div></div>
+      </div>
+    </section>
 
-  <footer class="cuoi">
-    <p class="lbl">Trăm năm hạnh phúc</p>
-    <p class="ky">Tuấn Minh <span class="amp">&amp;</span> Thu Thuỷ</p>
-    <p class="date">12 . 12 . 2026</p>
+    <section class="rsvp section" id="rsvp" aria-labelledby="rsvp-title">
+      <div class="rsvp-photo"><img src="assets/flowers.jpg" alt="White roses and delicate wedding flowers" loading="lazy"></div>
+      <div class="rsvp-content">
+        <h2 id="rsvp-title">Book your spot.<br>See you soon!</h2>
+        <p class="reply-date">Kindly reply by JULY 15th, 2026.</p>
+        <form id="rsvp-form">
+          <label for="guest-name">Name</label><input id="guest-name" name="name" placeholder="Your full name" autocomplete="name" minlength="2" maxlength="100" required>
+          <label for="guest-email">Email</label><input id="guest-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="200" required>
+          <label for="guest-count">How many more guests will attend?</label><input id="guest-count" type="number" name="guests" value="0" min="0" max="6" step="1" required>
+          <label for="guest-message">Leave us a message or a wish for our big day!</label><textarea id="guest-message" name="message" placeholder="A little note for the two of us…" rows="4" maxlength="2000"></textarea>
+          <button class="button submit-button" type="submit" disabled>Submit</button>
+          <p class="form-note">Preview invitation: your response is saved on this device only.</p>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img class="footer-photo" src="assets/footer.jpg" alt="" loading="lazy">
+    <div class="footer-inner"><p>We’re so happy to celebrate this day with the people we love. Thank you for every laugh, every happy tear, and all the memories that brought us here. We can’t wait for our next chapter.</p><div><span>#EvelynAndArthur2026</span><a href="#rsvp">Contact</a></div></div>
   </footer>
-
-</main>
-
-<dialog class="lightbox" aria-label="Ảnh cưới phóng lớn"><button class="lightbox-close" type="button" aria-label="Đóng ảnh">Đóng ×</button><button class="lightbox-prev" type="button" aria-label="Ảnh trước">‹</button><figure><img alt=""><figcaption aria-live="polite"></figcaption></figure><button class="lightbox-next" type="button" aria-label="Ảnh tiếp theo">›</button></dialog>
-<script src="js/guest-name.js?v=2"></script>
-<script src="js/invite.js?v=2"></script>
-<script src="js/main.js?v=4"></script>
 </body>
 </html>

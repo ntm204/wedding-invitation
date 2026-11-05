@@ -1,1 +1,7 @@
-.DS_Store
+node_modules/
+.env
+*.log
+dist/
+.media-cache/
+assets/hero-poster.webp
+.openai/
