@@ -60,6 +60,33 @@
   memoryCopy.querySelectorAll('img').forEach(image => image.alt = '');
   document.querySelector('.memory-track').append(memoryCopy);
 
+  // Keep below-the-fold URLs out of the browser's preload scanner.
+  const loadImage = image => {
+    if (!image.dataset.src) return;
+    image.loading = 'eager';
+    if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+    image.src = image.dataset.src;
+    image.removeAttribute('data-srcset');
+    image.removeAttribute('data-src');
+  };
+  const imageObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      loadImage(entry.target);
+      imageObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: saveData ? '0px' : '160px 0px', threshold: 0 });
+  document.querySelectorAll('img[data-src]').forEach(image => imageObserver.observe(image));
+
+  const memories = document.querySelector('.memories');
+  let memoriesVisible = false;
+  const syncMemories = () => memories.classList.toggle('is-in-view', memoriesVisible && !document.hidden && !motionPreference.matches && !saveData);
+  new IntersectionObserver(entries => {
+    memoriesVisible = entries[0].isIntersecting;
+    syncMemories();
+  }, { threshold: 0 }).observe(memories);
+  motionPreference.addEventListener('change', syncMemories);
+
   const textObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -150,8 +177,9 @@
   syncButton();
   const video = document.querySelector('.hero-film');
   let heroVisible = false;
+  let videoReady = false;
   const syncVideo = () => {
-    if (!heroVisible || document.hidden || motionPreference.matches || saveData) { video.pause(); return; }
+    if (!videoReady || !heroVisible || document.hidden || motionPreference.matches || saveData) { video.pause(); return; }
     if (!video.dataset.loaded) {
       const source = video.querySelector('source');
       source.src = matchMedia('(max-width: 767px)').matches ? source.dataset.mobileSrc || source.dataset.src : source.dataset.src;
@@ -160,7 +188,15 @@
     }
     video.play().catch(() => { /* The poster remains visible if autoplay is blocked. */ });
   };
+  // Let the poster, page and fonts finish loading before fetching the film.
+  const queueVideo = () => {
+    const ready = () => { videoReady = true; syncVideo(); };
+    if ('requestIdleCallback' in window) window.requestIdleCallback(ready, { timeout: 1500 });
+    else setTimeout(ready, 200);
+  };
+  if (document.readyState === 'complete') queueVideo();
+  else addEventListener('load', queueVideo, { once: true });
   new IntersectionObserver(entries => { heroVisible = entries[0].isIntersecting; syncVideo(); }, { threshold: .01 }).observe(video);
-  document.addEventListener('visibilitychange', () => { stopWheel(); syncVideo(); });
+  document.addEventListener('visibilitychange', () => { stopWheel(); syncMemories(); syncVideo(); });
   motionPreference.addEventListener('change', syncVideo);
 })();

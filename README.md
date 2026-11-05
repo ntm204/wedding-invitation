@@ -10,7 +10,7 @@ Open `index.html` in your browser. No dependencies or build step required.
 
 Edit `index.html` for content, `style.css` for styling, and `app.js` for interactions.
 
-Media files in `assets/` are already optimized. When replacing images, update both `src` and `srcset`. For the hero video, update `data-src`, `data-mobile-src`, and `poster`.
+Media files in `assets/` are already optimized. Images load near the viewport. When replacing them, update `data-src`, `data-srcset`, and the matching `<noscript>` fallback. For the hero video, update `data-src`, `data-mobile-src`, and `poster`.
 
 Push to `main` to update GitHub Pages.
 
