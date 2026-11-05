@@ -1,21 +1,17 @@
 # Wedding Invitation
 
-Thiệp cưới online viết bằng HTML, CSS và JavaScript, hỗ trợ điện thoại và máy tính.
+A responsive wedding invitation built with vanilla HTML, CSS, and JavaScript.
 
-[Xem trang](https://ntm204.github.io/wedding-invitation/)
+[Live site](https://ntm204.github.io/wedding-invitation/)
 
-## Chạy trên máy
+## Usage
 
-Cần Node.js, FFmpeg và Python.
+Open `index.html` in your browser. No dependencies or build step required.
 
-```sh
-npm ci
-npm run build
-python -m http.server 8085 --directory dist
-```
+Edit `index.html` for content, `style.css` for styling, and `app.js` for interactions.
 
-Mở `http://localhost:8085`. Sửa nội dung trong `index.html`, thay ảnh và video trong `assets/`.
+Media files in `assets/` are already optimized. When replacing images, update both `src` and `srcset`. For the hero video, update `data-src`, `data-mobile-src`, and `poster`.
 
-Đẩy lên nhánh `main` để tự động cập nhật GitHub Pages.
+Push to `main` to update GitHub Pages.
 
-RSVP hiện chỉ lưu trên thiết bị, chưa gửi phản hồi đến cô dâu và chú rể.
+RSVP responses are saved in the visitor's browser only; they are not sent to the couple.
